@@ -21,20 +21,18 @@ def _pkg_msi_impl(ctx):
     my_deps = []
     for x in ctx.attr.deps:
         my_deps += x.files.to_list()
+        
+    exts = []
+    for x in ctx.attr.exts:
+        exts += ["-ext", x]
+
     ctx.actions.run(
         outputs = [obj],
         inputs = [ctx.file.src] + my_deps,
         executable = ctx.executable._candle,
-        arguments = [
-            "-nologo",
-            "-arch", ctx.attr.arch,
-            "-o", obj.path,
-            ctx.file.src.path],
+        arguments = ["-nologo", "-arch", ctx.attr.arch] +
+            exts + ["-o", obj.path, ctx.file.src.path],
     )
-
-    exts = []
-    for x in ctx.attr.exts:
-        exts += ["-ext", x]
 
     ctx.actions.run(
         outputs = [out],
