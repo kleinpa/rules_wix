@@ -1,6 +1,5 @@
-load("//:rules.bzl", "pkg_msi")
-
-package(default_visibility = ["//visibility:public"])
+load("//:defs.bzl", "pkg_msi")
+load("@bazel_skylib//rules:build_test.bzl", "build_test")
 
 cc_binary(
     name = "example",
@@ -12,4 +11,11 @@ pkg_msi(
     src = "example.wxs",
     deps = [":example"],
     exts = ["WixUiExtension"],
+)
+
+build_test(
+    name = "build_test",
+    targets = [
+        ":rules_msi_example.msi",
+    ],
 )

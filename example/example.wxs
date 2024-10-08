@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='windows-1252'?>
 <Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
-  <Product Name='rules_wix example' Id='YOURGUID-40f0-441e-800e-6b8ba6f2f197' UpgradeCode='YOURGUID-22ee-4545-9598-3541e2f2eac2'
+  <Product Name='rules_wix example' Id='28b2ba3a-fba6-47d9-934f-1c86d91ef4c2' UpgradeCode='19d8a2bb-a46f-4f1d-b1d0-152ec05022aa'
     Language='1033' Codepage='1252' Version='1.0.0' Manufacturer='mjbots Robotic Systems'>
 
     <Package Id='*' Keywords='Installer'
@@ -17,7 +17,7 @@
         <Directory Id='mjbots' Name='mjbots'>
           <Directory Id='INSTALLDIR' Name='pkg_msi_example'>
 
-            <Component Id='MainExecutable' Guid='YOURGUID-02d8-408e-b7c4-6557a8bdeac5'>
+            <Component Id='MainExecutable' Guid='f98b9319-3327-4fa0-aa61-06e3105179cb'>
               <File Id='ExampleEXE' Name='example.exe' DiskId='1' Source='example.exe' KeyPath='yes'>
                 <Shortcut Id="startmenuExample" Directory="ProgramMenuDir" Name="Example" WorkingDirectory='INSTALLDIR' Icon="example.exe" IconIndex="0" Advertise="yes" />
                 <Shortcut Id="desktopExample" Directory="DesktopFolder" Name="Example" WorkingDirectory='INSTALLDIR' Icon="example.exe" IconIndex="0" Advertise="yes" />
@@ -30,7 +30,7 @@
 
       <Directory Id="ProgramMenuFolder" Name="Programs">
         <Directory Id="ProgramMenuDir" Name="mjbots">
-          <Component Id="ProgramMenuDir" Guid="YOURGUID-d8db-44ba-a679-aea11eb41f69">
+          <Component Id="ProgramMenuDir" Guid="5cbb8027-51d0-40a5-9409-989dcd26d829">
             <RemoveFolder Id='ProgramMenuDir' On='uninstall' />
             <RegistryValue Root='HKCU' Key='Software\[Manufacturer]\[ProductName]' Type='string' Value='' KeyPath='yes' />
           </Component>

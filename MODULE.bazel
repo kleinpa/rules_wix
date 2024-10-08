@@ -1,0 +1,11 @@
+module(name = "mjbots_rules_wix")
+
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+
+http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+http_archive(
+    name = "com_github_wixtoolset_wix3",
+    urls = ["https://github.com/wixtoolset/wix3/releases/download/wix3112rtm/wix311-binaries.zip"],
+    sha256 = "2c1888d5d1dba377fc7fa14444cf556963747ff9a0a289a3599cf09da03b9e2e",
+    build_file = "//:wix3.BUILD",
+)
