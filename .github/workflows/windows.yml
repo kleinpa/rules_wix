@@ -1,0 +1,11 @@
+name: windows
+on:
+  pull_request:
+  push:
+jobs:
+  bazel-test:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and test all targets
+        run: bazelisk test //...
